@@ -1,0 +1,19 @@
+name: Rust
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Checkout submodules
+      run: git submodule update --init --recursive
+    - name: Make shared lib
+      run: cd tests/shared-lib && make all-via-docker
+    - name: Build
+      run: capsule build
+    - name: Run tests
+      run: capsule test

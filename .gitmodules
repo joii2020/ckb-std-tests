@@ -1,0 +1,3 @@
+[submodule "deps/ckb-std"]
+	path = deps/ckb-std
+	url = https://github.com/nervosnetwork/ckb-std.git
